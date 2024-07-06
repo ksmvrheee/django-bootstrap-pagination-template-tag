@@ -13,4 +13,4 @@ Then you need to call it and pass the number of the current page and the total n
 ```
 {% create_pagination current_page_number=page_obj.number pages_count=page_obj.paginator.num_pages %}
 ```
-That will create a `<nav>` element on the page containing the pagination links.
+That will create a `<nav>` element on the page containing the pagination links. If there is only one page there will be created no pagination elements but there will be placed one `div` that takes a little bit of space to compensate the absence of it. 
