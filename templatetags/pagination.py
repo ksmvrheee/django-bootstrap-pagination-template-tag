@@ -18,17 +18,17 @@ def create_pagination(context, current_page_number: int,
     :return: a context for the subtemplate representing
     an info about pages to display.
     """
-    query_string = '?'
+    query_string_list = []
 
     for param, value in context['request'].GET.items():
         if param != 'page':
-            query_string += f'{param}={value}&'
+            query_string_list.append(f'{param}={value}&')
 
     pagination_context = {
         'current_page_number': current_page_number,
         'previous_page': None,
-        'next_page':  None,
-        'query_string': query_string
+        'next_page': None,
+        'query_string': '?' + ''.join(query_string_list)
     }
 
     if pages_count > 1:
